@@ -27,6 +27,15 @@ c.left = f;
 c.right = g;
 
 function deepFirst(root, target) {
-
+    if (root === null) {
+        return;
+    }
+    var childs = [];
+    console.log(root.value);
+    childs.push(root.left, root.right);
+    for(var i = 0; i < childs.length; i ++) {
+        deepFirst(childs[i]);
+    }
 }
+deepFirst(a);
 
