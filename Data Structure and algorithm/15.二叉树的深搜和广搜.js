@@ -27,15 +27,35 @@ c.left = f;
 c.right = g;
 
 function deepFirst(root, target) {
-    if (root === null) {
-        return;
-    }
-    var childs = [];
+    if (root === null) return false;
     console.log(root.value);
-    childs.push(root.left, root.right);
-    for(var i = 0; i < childs.length; i ++) {
-        deepFirst(childs[i]);
-    }
+    if (root.value === target) return true;
+    return deepFirst(root.left, target) || deepFirst(root.right, target);
 }
-deepFirst(a);
+console.log(
+    deepFirst(a, 'e'),
+    deepFirst(a, 'h'),
+)
 
+function breadthFirst(roots, target) {
+    if (roots === null) return false;
+    if (!Array.isArray(roots)) {
+        roots = [roots];
+    } else if(roots.length === 0) {
+        return false;
+    }
+    var childs = []
+    for (var i = 0; i < roots.length; i++) {
+        console.log(roots[i] && roots[i].value);
+        if (roots[i] !== null) {
+            if (roots[i].value === target) return true;
+            roots[i].left && childs.push(roots[i].left);
+            roots[i].right && childs.push(roots[i].right);
+        }
+    }
+    return breadthFirst(childs, target);
+}
+console.log(
+    breadthFirst(a, 'e'),
+    breadthFirst(a, 'h'),
+)
