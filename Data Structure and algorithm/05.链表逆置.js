@@ -39,3 +39,8 @@ function reverseLink(root) {
 }
 
 travelRecursive(reverseLink(a));
+
+module.exports = {
+    travelRecursive,
+    reverseLink
+}
