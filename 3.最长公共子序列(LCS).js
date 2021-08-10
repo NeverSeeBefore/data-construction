@@ -53,3 +53,35 @@ console.log(
     LCS('邓哥是渡一的吉祥物，也是全人类的好朋友', '面对挑战，绝不率先使用邓哥，是渡一对世界的承诺')
 );
 console.log(num);
+
+function test(str1, str2) {
+    const caches = [];
+    function _LCS(str1, str2) {
+        if (str1 === '' || str2 === '') return '';
+        for(let i = 0; i < caches.length; i++) {
+            const cache = caches[i];
+            if (cache.str1 === str1 && cache.str2 === str2) {
+                return cache.result;
+            }
+        }
+        let result = '';
+        if (str1[0] === str2[0]) {
+            result = str1[0] + _LCS(str1.substr(1), str2.substr(1));
+        }
+        else {
+            const result1 = _LCS(str1, str2.substr(1));
+            const result2 = _LCS(str1.substr(1), str2);
+            result = result1.length >= result2.length ? result1 : result2;
+        }
+        caches.push({
+            str1,
+            str2,
+            result
+        })
+        return result;
+    }
+    return _LCS(str1, str2);
+}
+console.log(
+    test('邓哥是渡一的吉祥物，也是全人类的好朋友', '面对挑战，绝不率先使用邓哥，是渡一对世界的承诺')
+);
