@@ -56,11 +56,22 @@ function package(total, objects) {
     console.log('cache', cache);
     return result;
 }
+// console.log(
+//     package(4, [
+//         { weight: 4, value: 3000 },
+//         { weight: 3, value: 2000 },
+//         { weight: 1, value: 1500 },
+//         { weight: 1, value: 2000 }
+//     ])
+// )
+
 console.log(
-    package(4, [
-        { weight: 4, value: 3000 },
-        { weight: 3, value: 2000 },
-        { weight: 1, value: 1500 },
-        { weight: 1, value: 2000 }
+    package(5, [
+        { weight: 2, value: 1 },
+        { weight: 3, value: 2 },
+        { weight: 3, value: 4 },
+        { weight: 1, value: 2 },
+        { weight: 2, value: 3 }
     ])
 )
+
