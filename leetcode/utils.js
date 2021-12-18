@@ -9,6 +9,11 @@ function TreeNode(x) {
     this.right = null;
 }
 
+function LinkNode(x) {
+    this.val = x;
+    this.next = null;
+}
+
 /**
  * 根据节点生成树结构
  * @param {Array}} arr 完全二叉树层序遍历数组
@@ -40,6 +45,23 @@ function createTree(arr) {
 //     createTree([3,5,1,6,2,0,8,'#','#',7,4])
 // );
 
-module.exports = {
-    createTree
+function createLink(arr) {
+    if (arr.length === 0) {
+        return null;
+    }
+    const head = new LinkNode(arr[0]);
+    for(let i = 1; i < arr.length; i ++) {
+        head.next = new LinkNode(arr[i]);
+    }
+    return head;
 }
+
+module.exports = {
+    createTree,
+    createLink
+}
+
+
+// console.log(
+//     createLink([1,2])
+// )

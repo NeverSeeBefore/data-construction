@@ -1,4 +1,4 @@
-// https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/comments/
+// https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
 
 // Input: preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]
 // Output: [3,9,20,null,null,15,7]
@@ -67,19 +67,19 @@ var buildTree = function (preorder, inorder) {
     // 中序遍历 右子树的范围 rootIndex + 1 -> 中序遍历的结束位置
     var inorderRightStart = rootIndex + 1;
     var inorderRightEnd = inorderEnd;
-    console.log(
-      "|",
-      preorderLeftStart,
-      preorderLeftEnd,
-      inorderLeftStart,
-      inorderLeftEnd,
-      "|",
-      preorderLeftStart,
-      preorderRightEnd,
-      inorderRightStart,
-      inorderRightEnd,
-      "|"
-    );
+    // console.log(
+    //   "|",
+    //   preorderLeftStart,
+    //   preorderLeftEnd,
+    //   inorderLeftStart,
+    //   inorderLeftEnd,
+    //   "|",
+    //   preorderLeftStart,
+    //   preorderRightEnd,
+    //   inorderRightStart,
+    //   inorderRightEnd,
+    //   "|"
+    // );
     inorderLeftStart <= inorderLeftEnd &&
       (root.left = _buildTree(
         preorderLeftStart,
