@@ -69,6 +69,18 @@ var LIS_2 = function (nums) {
     return Math.max(...resArr);
 }
 
+const test = function(nums) {
+    const dp = new Array(nums.length).fill(1);
+    for(let i = 0; i < nums.length; i ++) {
+        for(var j = 0; j < i; j++) {
+            if (nums[i] > nums[j]) {
+                dp[i] = Math.max(dp[i], dp[j] + 1);
+            }
+        }
+    }
+    return Math.max(...dp);
+}
+
 console.log(
     LIS([10,9,2,5,3,7,101,18])
 );
@@ -89,3 +101,8 @@ console.log(
     LIS_2([0])
 );
 
+console.log('---')
+console.log(test([10,9,2,5,3,7,101,18]));
+console.log(test([0,3,1,6,2,2,7]));
+console.log(test([0]));
+console.log('---')
