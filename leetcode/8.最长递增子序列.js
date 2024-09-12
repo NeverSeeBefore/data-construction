@@ -69,7 +69,7 @@ var LIS_2 = function (nums) {
     return Math.max(...resArr);
 }
 
-const test = function(nums) {
+const LTS_3 = function(nums) {
     const dp = new Array(nums.length).fill(1);
     for(let i = 0; i < nums.length; i ++) {
         for(var j = 0; j < i; j++) {
@@ -102,7 +102,7 @@ console.log(
 );
 
 console.log('---')
-console.log(test([10,9,2,5,3,7,101,18]));
-console.log(test([0,3,1,6,2,2,7]));
-console.log(test([0]));
+console.log(LTS_3([10,9,2,5,3,7,101,18]));
+console.log(LTS_3([0,3,1,6,2,2,7]));
+console.log(LTS_3([0]));
 console.log('---')
